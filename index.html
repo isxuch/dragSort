@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        list-style: none;
+    }
+
+    .sort-box {
+        padding-top: 50px;
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: row wrap;
+    }
+
+    .sort-box li {
+        width: 100px;
+        height: 30px;
+        border: 1px solid #e8e8e8;
+        text-align: center;
+        line-height: 30px;
+    }
+</style>
+
+<body>
+    <ul class="sort-box" id="list1">
+        <li>选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+        <li>选项四</li>
+        <li>选项五</li>
+        <li>选项六</li>
+        <li>选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+        <li>选项四</li>
+        <li>选项五</li>
+        <li>选项六</li>
+        <li>选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+        <li>选项四</li>
+        <li>选项五</li>
+        <li>选项六</li>
+        <li>选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+        <li>选项四</li>
+        <li>选项五</li>
+        <li>选项六</li>
+        <li>选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+        <li>选项四</li>
+        <li>选项五</li>
+        <li>选项六</li>
+        <li>选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+        <li>选项四</li>
+        <li>选项五</li>
+        <li>选项六</li>
+    </ul>
+    <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./dragSort.js"></script>
+    <script type="text/javascript">
+        $("#list1").dragsort({
+            dragSelector: "li",
+            dragBetween: true,
+            dragEnd: saveOrder,
+            placeHolderTemplate: "<li class='placeHolder'></li>"
+        });
+
+        function saveOrder() {
+            var data = $("#list1 li").map(function () {
+                return $(this).children().html();
+            }).get();
+            // $("input[name=list1SortOrder]").val(data.join("|"));
+        };
+    </script>
+</body>
+
+</html>
